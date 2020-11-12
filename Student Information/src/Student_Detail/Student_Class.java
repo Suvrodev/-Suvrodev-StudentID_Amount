@@ -31,10 +31,14 @@ public class Student_Class extends Add_Class {
                 c++;
             }
         }
-        if(c<=0){
-            String query="INSERT INTO `students`(`ID`, `Name`, `Age`, `Gender`, `CGPA`, `Department`, `Location`, `Phone_Number`,`Amount`, `Status`, `Loan`, `Paid`, `Remaining`) VALUES ("+ID+",'"+Name+"',"+Age+",'"+Gender+"',"+CGPA+",'"+Department+"','"+Address+"','"+Phone_Number+"',,'',,,)";
-            statement.executeUpdate(query);
-            System.out.println("ID Inserted");
+        try {
+            if (c <= 0) {
+                String query = "INSERT INTO `students`(`ID`, `Name`, `Age`, `Gender`, `CGPA`, `Department`, `Location`, `Phone_Number`, `Amount`, `Status`, `Loan`, `Paid`, `Remaining`) VALUES (" + ID + ",'" + Name + "'," + Age + ",'" + Gender + "'," + CGPA + ",'" + Department + "','" + Address + "','" + Phone_Number + "',"+0+",'"+""+"',"+0+","+0+","+0+")";
+                statement.executeUpdate(query);
+                System.out.println("ID Inserted");
+            }
+        }catch (Exception e){
+            System.out.println("Problem="+e);
         }
     }
 
